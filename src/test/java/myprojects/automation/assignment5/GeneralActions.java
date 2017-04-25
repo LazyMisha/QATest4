@@ -23,7 +23,7 @@ public class GeneralActions {
 
     public String productTitleInCart;
     public String productPriceInCart;
-    //public String quantity;
+    public String quantity;
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -34,7 +34,7 @@ public class GeneralActions {
     private By cartNextStep = By.xpath("//a[@class='btn btn-primary']");
     private By productTitleInTheCart = By.xpath("//*[@id='main']/div/div[1]/div[1]/div[2]/ul/li/div/div[2]/div[1]/a");
     private By productPriceInTheCart = By.xpath(".//*[@id='main']/div/div[1]/div[1]/div[2]/ul/li/div/div[2]/div[2]/span");
-    //private By quant = By.xpath("//*[@id='main']/div/div[1]/div[1]/div[2]/ul/li/div/div[3]/div/div[2]/div/div[1]/div/input");
+    private By quant = By.xpath("//*[@id='main']/div/div[1]/div[1]/div[2]/ul/li/div/div[3]/div/div[2]/div/div[1]/div/input");
     private By orderButton = By.xpath("//a[contains(.,'Оформление заказа')]");
     private By nameField = By.xpath("//input[@name='firstname']");
     private By surNameField = By.xpath("//input[@name='lastname']");
@@ -89,10 +89,10 @@ public class GeneralActions {
         waitForContentLoad(productTitleInTheCart);
         WebElement productTitleInTheCart = driver.findElement(this.productTitleInTheCart);
         WebElement productPriceInTheCart = driver.findElement(this.productPriceInTheCart);
-        //WebElement quant = driver.findElement(this.quant);
+        WebElement quant = driver.findElement(this.quant);
         productTitleInCart = productTitleInTheCart.getText();
         productPriceInCart = productPriceInTheCart.getText();
-        //quantity = quant.getText();
+        quantity = quant.getAttribute("value");
     }
 
     public void orderCreation(String name, String surname, String email, String address,

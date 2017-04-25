@@ -31,7 +31,7 @@ public class PlaceOrderTest extends BaseTest {
         actions.addProductToCart();
         Assert.assertTrue(actions.productsTitle.contains(actions.productTitleInCart));
         Assert.assertTrue(actions.productPrice.contains(actions.productPriceInCart));
-        //Assert.assertTrue(actions.quantity.contains("1"));
+        Assert.assertTrue(actions.quantity.contains("1"));
 
         // proceed to order creation, fill required information
         actions.orderCreation("MyNameIs", "MySurNameIs",
